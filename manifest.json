@@ -1,0 +1,10 @@
+{
+  "id": "crisp-lens",
+  "name": "Crisp Lens",
+  "version": "0.2.0",
+  "minAppVersion": "1.6.0",
+  "description": "Current-note object panel for ANKS: routing preview, field progression, ID relations and actions. Never moves files itself.",
+  "author": "letschips",
+  "authorUrl": "https://github.com/letschips",
+  "isDesktopOnly": false
+}

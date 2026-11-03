@@ -1,0 +1,1074 @@
+{
+  "schema": "anks-system-snapshot-v1",
+  "kind": "route-contract",
+  "generated_at": "2026-10-09T10:41:17+08:00",
+  "freshness": {
+    "state": "fresh",
+    "age_hours": 0.0
+  },
+  "source": {
+    "command": "python knowledge_router.py contract",
+    "reported_generated_at": "2026-10-09T02:41:17+00:00",
+    "command_exit_code": 0,
+    "diagnostic": false
+  },
+  "data": {
+    "schema": "anks-route-contract-v1",
+    "rules_version": 1,
+    "rules_fingerprint": "ee4a07570975e15343bd13403016596f0411945bc6006c7c440e90fd2431605b",
+    "generated_at": "2026-10-09T02:41:17+00:00",
+    "safety": {
+      "auto_fix_confidence": 1.0,
+      "review_below_confidence": 0.92,
+      "review_inbox": "Topics/{topic}/raw/inbox/to-organize",
+      "protected_prefixes": [
+        "Core/System/",
+        "Topics/*/system/",
+        "Sidecar/"
+      ],
+      "core_promotion": "requires promotion_approved: true and --allow-core-promotion",
+      "collisions": "never overwrite; report conflict"
+    },
+    "ignore": {
+      "names": [
+        "README.md",
+        "AGENTS.md",
+        "Start Here.md",
+        "SOURCE_OF_TRUTH.md",
+        "CLAUDE.md",
+        "GEMINI.md",
+        "anks",
+        ".clinerules",
+        ".roorules",
+        "AI-native Knowledge System V2 人类使用指南.md",
+        "index.md",
+        "system-map-animated.svg",
+        "自媒体内容总览.base",
+        "自媒体内容大盘.md",
+        ".gitignore",
+        ".gitkeep",
+        ".DS_Store",
+        "DS_Store"
+      ],
+      "prefixes": [
+        ".git/",
+        ".obsidian/",
+        "Core/System/",
+        "Core/Indexes/",
+        "Sidecar/tools/",
+        "Sidecar/skills/",
+        "Sidecar/logs/",
+        ".workbuddy/",
+        "Now/",
+        "docs/superpowers/",
+        "Topics/self-media/outputs/content/公众号HTML输出/",
+        ".personal-os-backups/",
+        "Topics/self-media/raw/assets/tutorial-9.0/",
+        "Topics/self-media/raw/assets/brand-assets/",
+        "generated-images/",
+        "wiki/",
+        "Topics/self-media/content-projects/",
+        "Topics/main-business/content-projects/"
+      ]
+    },
+    "routing_metadata_keys": [
+      "artifact_type",
+      "asset_type",
+      "core_domain",
+      "core_kind",
+      "id",
+      "inbox_type",
+      "output_type",
+      "platform",
+      "project",
+      "promotion_approved",
+      "promotion_candidate",
+      "publication_status",
+      "research_type",
+      "review_type",
+      "routing_confidence",
+      "routing_reason",
+      "routing_status",
+      "scope",
+      "source_type",
+      "stable_id",
+      "status",
+      "topic",
+      "type"
+    ],
+    "domains": {
+      "content": {
+        "platform": [
+          "channels",
+          "instagram",
+          "threads",
+          "wechat",
+          "xiaohongshu"
+        ],
+        "status": [
+          "draft",
+          "parked",
+          "published"
+        ]
+      },
+      "output": {
+        "artifact_type": [
+          "content",
+          "health_report",
+          "memo",
+          "qa",
+          "report",
+          "visualization"
+        ],
+        "audience": [
+          "公众号"
+        ],
+        "platform": [
+          "channels",
+          "instagram",
+          "threads",
+          "wechat",
+          "xiaohongshu"
+        ],
+        "publication_status": [
+          "live",
+          "published"
+        ],
+        "research_type": [
+          "content-project"
+        ],
+        "status": [
+          "draft",
+          "final",
+          "parked",
+          "published"
+        ]
+      },
+      "question": {
+        "status": [
+          "backlog",
+          "parked",
+          "ready-to-produce",
+          "to-research"
+        ]
+      },
+      "raw": {
+        "inbox_type": [
+          "idea",
+          "link",
+          "scratch"
+        ],
+        "source_type": [
+          "article",
+          "visual"
+        ],
+        "status": [
+          "to-organize"
+        ]
+      },
+      "research": {
+        "research_type": [
+          "content-project"
+        ]
+      },
+      "review": {
+        "review_type": [
+          "content-data",
+          "knowledge-writeback",
+          "monthly",
+          "platform",
+          "user-feedback",
+          "viral-analysis",
+          "weekly"
+        ]
+      },
+      "source": {
+        "source_type": [
+          "article",
+          "community",
+          "github",
+          "interview",
+          "methodology",
+          "official-doc",
+          "paper",
+          "product",
+          "report",
+          "transcript",
+          "video"
+        ],
+        "status": [
+          "to-read"
+        ]
+      }
+    },
+    "rules": [
+      {
+        "name": "raw-article",
+        "group": "rules",
+        "match": {
+          "type": "raw",
+          "source_type": "article"
+        },
+        "target": "Topics/{topic}/raw/articles",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "raw-idea",
+        "group": "rules",
+        "match": {
+          "type": "raw",
+          "inbox_type": "idea"
+        },
+        "target": "Topics/{topic}/raw/inbox/ideas",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "raw-link",
+        "group": "rules",
+        "match": {
+          "type": "raw",
+          "inbox_type": "link"
+        },
+        "target": "Topics/{topic}/raw/inbox/links",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "raw-scratch",
+        "group": "rules",
+        "match": {
+          "type": "raw",
+          "inbox_type": "scratch"
+        },
+        "target": "Topics/{topic}/raw/inbox/scratch",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "raw-to-organize",
+        "group": "rules",
+        "match": {
+          "type": "raw",
+          "status": "to-organize"
+        },
+        "target": "Topics/{topic}/raw/inbox/to-organize",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "raw-visual",
+        "group": "rules",
+        "match": {
+          "type": "raw",
+          "source_type": "visual"
+        },
+        "target": "Topics/{topic}/raw/assets/cards",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-to-read",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "status": "to-read"
+        },
+        "target": "Topics/{topic}/sources/to-read",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-article",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "article"
+        },
+        "target": "Topics/{topic}/sources/articles",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-community",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "community"
+        },
+        "target": "Topics/{topic}/sources/community",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-interview",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "interview"
+        },
+        "target": "Topics/{topic}/sources/interviews",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-github",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "github"
+        },
+        "target": "Topics/{topic}/sources/github",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-official-doc",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "official-doc"
+        },
+        "target": "Topics/{topic}/sources/official-docs",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-paper",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "paper"
+        },
+        "target": "Topics/{topic}/sources/papers",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-product",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "product"
+        },
+        "target": "Topics/{topic}/sources/product",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-report",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "report"
+        },
+        "target": "Topics/{topic}/sources/reports",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-video",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "video"
+        },
+        "target": "Topics/{topic}/sources/videos",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-methodology",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "methodology"
+        },
+        "target": "Topics/{topic}/sources/methodology",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "source-transcript",
+        "group": "rules",
+        "match": {
+          "type": "source",
+          "source_type": "transcript"
+        },
+        "target": "Topics/{topic}/sources/transcripts",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "knowledge",
+        "group": "rules",
+        "match": {
+          "type": "knowledge"
+        },
+        "target": "Topics/{topic}/knowledge",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "question-backlog",
+        "group": "rules",
+        "match": {
+          "type": "question",
+          "status": "backlog"
+        },
+        "target": "Topics/{topic}/questions/backlog",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "question-parked",
+        "group": "rules",
+        "match": {
+          "type": "question",
+          "status": "parked"
+        },
+        "target": "Topics/{topic}/questions/parked",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "question-ready-to-produce",
+        "group": "rules",
+        "match": {
+          "type": "question",
+          "status": "ready-to-produce"
+        },
+        "target": "Topics/{topic}/questions/ready-to-produce",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "question-to-research",
+        "group": "rules",
+        "match": {
+          "type": "question",
+          "status": "to-research"
+        },
+        "target": "Topics/{topic}/questions/to-research",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "research-content-project",
+        "group": "rules",
+        "match": {
+          "type": "research",
+          "research_type": "content-project"
+        },
+        "target": "Topics/{topic}/research/content-projects/{project}",
+        "requires": [
+          "project",
+          "topic"
+        ]
+      },
+      {
+        "name": "content-project-draft",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "research_type": "content-project",
+          "status": "draft"
+        },
+        "target": "Topics/{topic}/research/content-projects/{project}",
+        "requires": [
+          "project",
+          "topic"
+        ]
+      },
+      {
+        "name": "content-project-parked",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "research_type": "content-project",
+          "status": "parked"
+        },
+        "target": "Topics/{topic}/research/content-projects/{project}",
+        "requires": [
+          "project",
+          "topic"
+        ]
+      },
+      {
+        "name": "review-content-data",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "content-data"
+        },
+        "target": "Topics/{topic}/research/reviews/content-data",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "review-weekly",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "weekly"
+        },
+        "target": "Topics/{topic}/research/reviews/weekly",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "review-monthly",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "monthly"
+        },
+        "target": "Topics/{topic}/research/reviews/monthly",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "review-platform",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "platform"
+        },
+        "target": "Topics/{topic}/research/reviews/platform",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "review-user-feedback",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "user-feedback"
+        },
+        "target": "Topics/{topic}/research/reviews/user-feedback",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "review-viral-analysis",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "viral-analysis"
+        },
+        "target": "Topics/{topic}/research/reviews/viral-analysis",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "review-knowledge-writeback",
+        "group": "rules",
+        "match": {
+          "type": "review",
+          "review_type": "knowledge-writeback"
+        },
+        "target": "Topics/{topic}/research/reviews/knowledge-writeback",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-health",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "health_report"
+        },
+        "target": "Topics/{topic}/outputs/health",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-qa",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "qa"
+        },
+        "target": "Topics/{topic}/outputs/qa",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-report",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "report"
+        },
+        "target": "Topics/{topic}/outputs/reports",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-memo",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "memo"
+        },
+        "target": "Topics/{topic}/outputs/reports",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-visualization",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "visualization"
+        },
+        "target": "Topics/{topic}/outputs/visualizations",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-published-wechat-audience",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": [
+            "published",
+            "final"
+          ],
+          "publication_status": [
+            "published",
+            "live"
+          ],
+          "audience": "公众号"
+        },
+        "target": "Topics/{topic}/outputs/content/published/公众号",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-published-wechat",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": [
+            "published",
+            "final"
+          ],
+          "publication_status": [
+            "published",
+            "live"
+          ],
+          "platform": "wechat"
+        },
+        "target": "Topics/{topic}/outputs/content/published/公众号",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-published-xiaohongshu",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": [
+            "published",
+            "final"
+          ],
+          "publication_status": [
+            "published",
+            "live"
+          ],
+          "platform": "xiaohongshu"
+        },
+        "target": "Topics/{topic}/outputs/content/published/小红书",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-published-channels",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": [
+            "published",
+            "final"
+          ],
+          "publication_status": [
+            "published",
+            "live"
+          ],
+          "platform": "channels"
+        },
+        "target": "Topics/{topic}/outputs/content/published/视频号",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-published-instagram",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": [
+            "published",
+            "final"
+          ],
+          "publication_status": "published",
+          "platform": "instagram"
+        },
+        "target": "Topics/{topic}/outputs/content/published/Instagram",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-published-threads",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": [
+            "published",
+            "final"
+          ],
+          "publication_status": "published",
+          "platform": "threads"
+        },
+        "target": "Topics/{topic}/outputs/content/published/Threads",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content-parked",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content",
+          "status": "parked"
+        },
+        "target": "Topics/{topic}/outputs/content/parked",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "output-content",
+        "group": "rules",
+        "match": {
+          "type": "output",
+          "artifact_type": "content"
+        },
+        "target": "Topics/{topic}/outputs/content",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-parked",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "parked"
+        },
+        "target": "Topics/{topic}/outputs/content/parked",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-draft",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "draft"
+        },
+        "target": "Topics/{topic}/outputs/content",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-published-xiaohongshu",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "published",
+          "platform": "xiaohongshu"
+        },
+        "target": "Topics/{topic}/outputs/content/published/小红书",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-published-wechat",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "published",
+          "platform": "wechat"
+        },
+        "target": "Topics/{topic}/outputs/content/published/公众号",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-published-channels",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "published",
+          "platform": "channels"
+        },
+        "target": "Topics/{topic}/outputs/content/published/视频号",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-published-instagram",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "published",
+          "platform": "instagram"
+        },
+        "target": "Topics/{topic}/outputs/content/published/Instagram",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "content-published-threads",
+        "group": "rules",
+        "match": {
+          "type": "content",
+          "status": "published",
+          "platform": "threads"
+        },
+        "target": "Topics/{topic}/outputs/content/published/Threads",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "core-concept",
+        "group": "core_rules",
+        "match": {
+          "core_kind": "concept"
+        },
+        "target": "Core/Concepts/{core_domain}",
+        "requires": [
+          "core_domain"
+        ]
+      },
+      {
+        "name": "core-entity",
+        "group": "core_rules",
+        "match": {
+          "core_kind": "entity"
+        },
+        "target": "Core/Entities",
+        "requires": []
+      },
+      {
+        "name": "core-framework",
+        "group": "core_rules",
+        "match": {
+          "core_kind": "framework"
+        },
+        "target": "Core/Frameworks/{core_domain}",
+        "requires": [
+          "core_domain"
+        ]
+      },
+      {
+        "name": "core-method",
+        "group": "core_rules",
+        "match": {
+          "core_kind": "method"
+        },
+        "target": "Core/Methods/{core_domain}",
+        "requires": [
+          "core_domain"
+        ]
+      },
+      {
+        "name": "core-shared-source",
+        "group": "core_rules",
+        "match": {
+          "core_kind": "shared-source"
+        },
+        "target": "Core/Shared-Sources",
+        "requires": []
+      },
+      {
+        "name": "core-moc",
+        "group": "core_rules",
+        "match": {
+          "core_kind": "moc"
+        },
+        "target": "Core/Indexes/MOCs",
+        "requires": []
+      },
+      {
+        "name": "asset-image",
+        "group": "asset_rules",
+        "match": {},
+        "target": "Topics/{topic}/raw/assets/images",
+        "requires": [
+          "topic"
+        ],
+        "extensions": [
+          ".png",
+          ".jpg",
+          ".jpeg",
+          ".webp",
+          ".gif",
+          ".svg",
+          ".avif"
+        ]
+      },
+      {
+        "name": "asset-audio",
+        "group": "asset_rules",
+        "match": {},
+        "target": "Topics/{topic}/raw/assets/audio",
+        "requires": [
+          "topic"
+        ],
+        "extensions": [
+          ".mp3",
+          ".wav",
+          ".m4a",
+          ".aac",
+          ".flac",
+          ".ogg",
+          ".amr",
+          ".speex",
+          ".silk"
+        ]
+      },
+      {
+        "name": "asset-pdf",
+        "group": "asset_rules",
+        "match": {},
+        "target": "Topics/{topic}/raw/assets/pdf",
+        "requires": [
+          "topic"
+        ],
+        "extensions": [
+          ".pdf"
+        ]
+      },
+      {
+        "name": "asset-video",
+        "group": "asset_rules",
+        "match": {},
+        "target": "Topics/{topic}/raw/assets/video",
+        "requires": [
+          "topic"
+        ],
+        "extensions": [
+          ".mp4",
+          ".mov",
+          ".mkv",
+          ".webm",
+          ".m4v"
+        ]
+      },
+      {
+        "name": "asset-canvas",
+        "group": "asset_rules",
+        "match": {},
+        "target": "Topics/{topic}/outputs/visualizations",
+        "requires": [
+          "topic"
+        ],
+        "extensions": [
+          ".canvas"
+        ]
+      },
+      {
+        "name": "asset-screenshot",
+        "group": "asset_metadata_rules",
+        "match": {
+          "asset_type": "screenshot"
+        },
+        "target": "Topics/{topic}/raw/assets/screenshots",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "asset-cover",
+        "group": "asset_metadata_rules",
+        "match": {
+          "asset_type": "cover"
+        },
+        "target": "Topics/{topic}/raw/assets/covers",
+        "requires": [
+          "topic"
+        ]
+      },
+      {
+        "name": "asset-project",
+        "group": "asset_metadata_rules",
+        "match": {
+          "asset_type": "project"
+        },
+        "target": "Topics/{topic}/raw/assets/projects",
+        "requires": [
+          "topic"
+        ]
+      }
+    ]
+  }
+}

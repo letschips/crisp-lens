@@ -1,0 +1,316 @@
+/* Crisp Lens — 平铺面板：分区靠细线和间距；中性灰为主，强调色只给选中值。 */
+
+.crisp-lens-view {
+  --crisp-lens-chip-bg: color-mix(in srgb, var(--text-normal) 7%, transparent);
+  padding: 14px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-ui-small);
+}
+
+/* 侧栏没有视图标题栏：顶部让出一个 --header-height，内容起点与主区视图标题栏下沿对齐。
+   选择器要压过主题对侧栏 .view-content 的 padding 覆盖。 */
+.workspace-leaf-content > .view-content.crisp-lens-view,
+body:not(.is-mobile) .mod-sidedock .workspace-leaf-content > .view-content.crisp-lens-view {
+  padding: calc(var(--header-height, 40px) + 12px) 14px 20px;
+}
+
+.crisp-lens-empty {
+  color: var(--text-muted);
+  padding: 24px 8px;
+  text-align: center;
+}
+
+/* ---------- 头部 ---------- */
+
+.crisp-lens-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+  min-width: 0;
+}
+
+.crisp-lens-head-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.crisp-lens-title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--font-ui-medium);
+  font-weight: var(--font-semibold, 600);
+  line-height: 1.35;
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+}
+
+.crisp-lens-tools {
+  flex: none;
+  display: flex;
+  gap: 2px;
+  margin-top: -2px;
+}
+
+.crisp-lens-view button.crisp-lens-icon-btn {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-s, 6px);
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--text-muted);
+}
+
+.crisp-lens-view button.crisp-lens-icon-btn:hover:not(:disabled) {
+  background: var(--crisp-lens-chip-bg) !important;
+  color: var(--text-normal);
+}
+
+.crisp-lens-view button.crisp-lens-icon-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.crisp-lens-view button.crisp-lens-icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.crisp-lens-meta,
+.crisp-lens-values,
+.crisp-lens-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+}
+
+.crisp-lens-chip {
+  font-size: var(--font-ui-smaller);
+  line-height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--crisp-lens-chip-bg);
+  color: var(--text-muted);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crisp-lens-chip.is-id {
+  font-family: var(--font-monospace);
+  cursor: pointer;
+}
+
+.crisp-lens-chip.is-id:hover {
+  color: var(--text-normal);
+}
+
+.crisp-lens-chip.is-outside {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--background-modifier-border);
+  color: var(--text-normal);
+}
+
+.crisp-lens-chip.is-warning {
+  background: rgba(var(--color-orange-rgb), 0.14);
+  color: var(--color-orange);
+}
+
+/* ---------- 分区 ---------- */
+
+.crisp-lens-section {
+  border-top: 1px solid var(--background-modifier-border);
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.crisp-lens-route-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crisp-lens-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: var(--font-medium, 500);
+  color: var(--text-normal);
+}
+
+.crisp-lens-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+
+.crisp-lens-status.is-correct::before {
+  background: var(--color-green);
+}
+
+.crisp-lens-status.is-misplaced::before,
+.crisp-lens-status.is-review::before,
+.crisp-lens-status.is-normalize::before {
+  background: var(--color-orange);
+}
+
+.crisp-lens-status.is-unroutable::before {
+  background: var(--color-red);
+}
+
+.crisp-lens-muted {
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  overflow-wrap: anywhere;
+}
+
+.crisp-lens-target {
+  font-family: var(--font-monospace);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+}
+
+.crisp-lens-view button.crisp-lens-btn {
+  align-self: flex-start;
+  font-size: var(--font-ui-smaller);
+  height: auto;
+  padding: 4px 12px;
+  margin-top: 2px;
+  border-radius: var(--radius-s, 6px);
+  box-shadow: none !important;
+}
+
+.crisp-lens-view button.crisp-lens-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- 字段 ---------- */
+
+.crisp-lens-fields {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: baseline;
+}
+
+.crisp-lens-field {
+  display: contents;
+}
+
+.crisp-lens-field-name {
+  font-family: var(--font-monospace);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+  line-height: 24px;
+}
+
+.crisp-lens-field-value {
+  color: var(--text-normal);
+  overflow-wrap: anywhere;
+}
+
+.crisp-lens-view button.crisp-lens-value {
+  font-size: var(--font-ui-smaller);
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 999px;
+  background: var(--crisp-lens-chip-bg) !important;
+  box-shadow: none !important;
+  color: var(--text-muted);
+}
+
+.crisp-lens-view button.crisp-lens-value:hover:not(.is-active) {
+  color: var(--text-normal);
+}
+
+.crisp-lens-view button.crisp-lens-value.is-active {
+  background: var(--interactive-accent) !important;
+  color: var(--text-on-accent);
+  cursor: default;
+}
+
+/* ---------- 关联 ---------- */
+
+.crisp-lens-rel {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.crisp-lens-rel-field {
+  flex: none;
+  font-family: var(--font-monospace);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+}
+
+.crisp-lens-rel-link {
+  color: var(--text-normal);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.crisp-lens-rel-link:hover {
+  color: var(--text-accent);
+}
+
+.crisp-lens-rel.is-missing .crisp-lens-rel-link {
+  color: var(--color-red);
+  cursor: default;
+}
+
+.crisp-lens-subtitle {
+  margin-top: 4px;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+/* ---------- 页脚（仅契约异常时出现） ---------- */
+
+.crisp-lens-footer {
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: 12px;
+}
+
+.crisp-lens-view button.crisp-lens-link-btn {
+  background: none !important;
+  box-shadow: none !important;
+  border: none;
+  padding: 0 4px;
+  height: auto;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-accent);
+}
+
+.crisp-lens-input {
+  width: 100%;
+}
+
+.crisp-lens-modal-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
